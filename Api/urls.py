@@ -8,6 +8,9 @@ router=DefaultRouter()
 router.register("author", views.author)
 router.register("category", views.Category)
 router.register("book", views.book)
+router.register("student", views.Student)
+router.register("department", views.department)
+router.register("issue", views.issue)
 
 
 urlpatterns = [
