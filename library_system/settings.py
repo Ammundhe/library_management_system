@@ -42,14 +42,8 @@ INSTALLED_APPS = [
     'student',
     'library',
     'email_auth',
-    'rest_framework.authtoken',
 ]
 
-REST_FRAMEWORK={
-    'DEFAULT_AUTHENTICATION_CLASSES':[
-        'rest_framework.authentication.TokenAuthentication'
-    ]
-}
 
 AUTH_USER_MODEL = 'email_auth.User'
 

@@ -14,6 +14,5 @@ router.register("issue", views.issue)
 
 
 urlpatterns = [
-    path("login", views.LoginPage.as_view()),
     path("", include(router.urls)),
 ]

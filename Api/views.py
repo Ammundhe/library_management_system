@@ -1,14 +1,9 @@
-from django.shortcuts import render
-from rest_framework.authtoken.views import ObtainAuthToken
-from rest_framework.settings import api_settings
 from rest_framework.viewsets import ModelViewSet
 from Api.serializers import Author_serializer, Book_serializer, category_serializer, Department_serializer, student_serializer, Issue_serializer
 from library.models import Author, Book, category, Issue
 from student.models import student, Department
 
 
-class LoginPage(ObtainAuthToken):
-    renderer_classes=api_settings.DEFAULT_RENDERER_CLASSES
 
 
 class author(ModelViewSet):
