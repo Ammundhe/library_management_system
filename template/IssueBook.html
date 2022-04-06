@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Book</th>
+        <th scope="col">Return date</th>
+        <th scope="col">Returned</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for issue in issuedbooks %}
+            <tr>
+                <th scope="row">{{issue.id}}</th>
+                <td>{{issue.student}}</td>
+                <td>{{issue.book}}</td>
+                <td>{{issue.return_date}}</td>
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="returned" value={{issue.id}} class="btn btn-primary">Returned</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post">
+                        {% csrf_token %}
+                        <button type="submit" name="delete" value={{issue.id}} class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+     
+    </tbody>
+  </table>
+{% endblock content %}
+
+
+

@@ -41,8 +41,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'student',
     'library',
-    'email_auth'
+    'email_auth',
+    'rest_framework.authtoken',
 ]
+
+REST_FRAMEWORK={
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
 
 AUTH_USER_MODEL = 'email_auth.User'
 
@@ -130,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = 'assets/'
 
 STATICFILES_DIRS=[
     os.path.join(BASE_DIR,"static"),

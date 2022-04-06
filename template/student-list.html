@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="product spad">
+    <div class="container">
+        <form method="get" id="product-form">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                        <div class="sidebar__item">
+                            <h4>Department</h4>
+                            <ul>
+                                {% for department in department %}
+                                    <li><a
+                                        {% if department.id == student_id %}
+                                          class = "text-info"
+                                        {% endif %}
+                                        href="{% url 'Student' student_id=department.id %}">{{department.name}}</a></li>
+                                {% endfor %}
+                                
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-7">
+                   
+                    <div class="filter__item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-5">
+                                
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="filter__found">
+                                    <h6><span>{{Student.count}}</span> Student found</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for student in Student %}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__text">
+                                        <h6><a href="">{{student.name}}</a></h6>
+                                        <h5>{{student.deparment}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock content %}

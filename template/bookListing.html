@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="product spad">
+    <div class="container">
+        <form method="get" id="product-form">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                        <div class="sidebar__item">
+                            <h4>Books Categories</h4>
+                            <ul>
+                                {% for category in categories %}
+                                    <li><a
+                                        {% if category.id == bookId %}
+                                          class = "text-info"
+                                        {% endif %}
+                                        href="{% url 'BookCategories' bookId=category.id %}">{{category.name}}</a></li>
+                                {% endfor %}
+                                
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-7">
+                   
+                    <div class="filter__item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-5">
+                                
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="filter__found">
+                                    <h6><span>{{books.count}}</span> Books found</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for book in books %}
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{{book.image.url}}">
+                                    </div>
+                                    <div class="product__item__text">
+                                        <h6><a href="{% url 'IssueDetails' %}">{{book.name}}</a></h6>
+                                        <h5>{{book.author}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock content %}

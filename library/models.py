@@ -9,6 +9,7 @@ class Author(models.Model):
 
     def __str__(self) -> str:
         return str(self.name)
+
 class category(models.Model):
     name=models.CharField(max_length=255)
     
@@ -16,7 +17,7 @@ class category(models.Model):
         return str(self.name)
 
 class Book(models.Model):
-    category=models.ForeignKey(category, on_delete=models.CASCADE)
+    category=models.ForeignKey(category, on_delete=models.CASCADE, related_name="bookCategory")
     name=models.CharField(max_length=255)
     description=models.TextField()
     image=models.ImageField()
@@ -33,7 +34,6 @@ class Issue(models.Model):
     issued_at=models.DateTimeField()
     returned=models.BooleanField()
     return_date=models.DateTimeField()
-
     def __str__(self) -> str:
         return str(self.student)
 
